@@ -77,4 +77,4 @@ run: $(MAIN).class
 #
 
 clean:
-	$(RM) src/modular2/*.class
+	$(RM) bin/projetoFinal/*.class
