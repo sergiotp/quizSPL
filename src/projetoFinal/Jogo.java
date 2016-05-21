@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -47,6 +46,7 @@ public class Jogo extends JPanel {
 		}
 		return linhas;
 	}
+	
 	/*
 	 * Insere a pontuação do jogador de acordo com o nível de dificuldade.
 	 */

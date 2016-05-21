@@ -13,7 +13,6 @@ public class Label extends JPanel{
 	/*
 	 * Cria o rodapé com a pontuação do jogador.
 	 */
-	
 	private static int jogadas = 0, acertos = 0;
 	static JLabel rotulo;
 	

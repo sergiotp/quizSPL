@@ -9,24 +9,23 @@ import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 @SuppressWarnings("serial")
-public class Imagem extends JLabel implements ActionListener{
+public class Pergunta extends JLabel implements ActionListener{
 
 	ImageIcon imagemFrente, imagemTraseira;
 	private int numero;
 	private String caminhoImagem;
 	private boolean paraCima = false;
-	static ArrayList<Imagem> numeroDeViradas = new ArrayList<Imagem>();
+	static ArrayList<Pergunta> numeroDeViradas = new ArrayList<Pergunta>();
 	private static int numeroDeTentativas = 0, numeroDeAcertos = 0, dificuldade = 0;
 	private static String nomeJogador;
 	private String sequencial;
-		
 	private Timer contador;
 	
 	/*
 	 * https://docs.oracle.com/javase/tutorial/uiswing/components/icon.html
 	 */
 
-	public Imagem(int numero, String sequencial, ImageIcon imagemTraseira, int nivelDeDificuldade) {
+	public Pergunta(int numero, String sequencial, ImageIcon imagemTraseira, int nivelDeDificuldade) {
 		super(imagemTraseira);
 		dificuldade = nivelDeDificuldade - 1;
 		this.sequencial = sequencial;

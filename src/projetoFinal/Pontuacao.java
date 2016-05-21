@@ -1,6 +1,7 @@
 package projetoFinal;
 
 public class Pontuacao {
+	
 	private String nomeJogador, numeroJogadas;
 		
 	protected Pontuacao(String nomeJogador, String numeroJogadas){
