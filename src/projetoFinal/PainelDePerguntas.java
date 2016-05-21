@@ -72,11 +72,11 @@ public class PainelDePerguntas extends JPanel implements ActionListener{
 			JOptionPane.showMessageDialog(this, mensagem, "Erro", JOptionPane.INFORMATION_MESSAGE);
 		}else{
 			if(resposta == "correct"){
-				System.out.println("OK");
+				//System.out.println("OK");
 				//Atualizar o número de questões corretas.
 				
 			}else{
-				System.out.println("NOT OK");
+				//System.out.println("NOT OK");
 				//Atualizar o número de questões incorretas.
 			}
 			this.verificaQuestoes();
