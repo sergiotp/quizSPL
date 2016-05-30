@@ -18,3 +18,4 @@ Phase 5: Shotgun Surgery
 Q1;Changes conducted in one class require many changes in other classes.;a) Divergent Change;b) Parallel Inheritance Hierarchies;c) Shotgun Surgery;c)
 Q2;YYY;a) Many other classes must be modified when a given class changes.;b) Shotgun Surgery is the opposite of Divergent Change.;c) There is a one-to-one link between common changes and classes;c)
 Q3;YYY;a) Move Method;b) Move Field;c) Move Class;c)
+teste
