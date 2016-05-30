@@ -1,21 +1,26 @@
-﻿Phase 1: Large Class
-Q1;Many responsibilities and processing implemented in the same class. The class is trying to do too much;a) Data Class;b) Shotgun Surgery;c) Large Class;c)
-Q2;YYY;a) It has many attributes;b) Many attributes are not used together all the time;c) It has no redundancy;c)
-Q3;YYY;a) Extract Class;b) Extract Sub-method;c) Extract Interface;b)
-Phase 2: Duplicated Code
-Q1;Redundancy in different parts of source code.;a) Divergent Change;b) Duplicated Code;c) Speculative Generality;b)
-Q2;YYY;a) Similar code structure in more than one place;b) Similar method naming in different parts of the code;c) The same expression in two sibling subclasses;b)
-Q3;YYY;a) Pull Up Method;b) Extract Method;c) Duplicate Call;c)
+﻿Phase 1:
+Q1;Many responsibilities and processing implemented in the same class. The class is trying to do too much. Choose one of the answers below:;a) Data Class;b) Shotgun Surgery;c) Large Class;c)
+Q2;Which alternative does not relate to this bad smell? Choose one of the answers below:;a) It has many attributes;b) Many attributes are not used together all the time;c) It has no redundancy;c)
+Q3;Which refactoring Fowler does not indicate as appropriate to solve this smell? Choose one of the answers below:;a) Extract Class;b) Extract Sub-method;c) Extract Interface;b)
+Phase 2:
+Q1;Redundancy in different parts of source code. Choose one of the answers below:;a) Divergent Change;b) Duplicated Code;c) Speculative Generality;b)
+Q2;Which alternative does not relate to this bad smell? Choose one of the answers below:;a) Similar code structure in more than one place;b) Similar method naming in different parts of the code;c) The same expression in two sibling subclasses;b)
+Q3;Which refactoring Fowler does not indicate as appropriate to solve this smell? Choose one of the answers below:;a) Pull Up Method;b) Extract Method;c) Duplicate Call;c)
 Phase 3: Middle Man
-Q1;Most of the methods are delegations in the class.;a) Data Class;b) Middle Man;c) Lazy Class;b)
-Q2;YYY;a) Many complex and responsible methods in terms of processing;b) Delegations are the common processing of methods from the class;c) Few methods with complex and responsible processing;a)
-Q3;YYY;a) Remove Methods;b) Remove Middle Man;c) Replace Delegation with Inheritance;a)
-Phase 4: Long Method
-Q1;Long procedures in source code.;a) Long Parameter List;b) Message Chains;c) Long Method;c)
-Q2;YYY;a) It is sometimes hard to understand long procedures;b) Long and complex procedures cannot be decomposed;c) Some parts of code may be more appropriate in the method than other parts;b)
-Q3;YYY;a) Extract Method;b) Delete Method;c) Replace Method with Method Object;b)
-Phase 5: Shotgun Surgery
-Q1;Changes conducted in one class require many changes in other classes.;a) Divergent Change;b) Parallel Inheritance Hierarchies;c) Shotgun Surgery;c)
-Q2;YYY;a) Many other classes must be modified when a given class changes.;b) Shotgun Surgery is the opposite of Divergent Change.;c) There is a one-to-one link between common changes and classes;c)
-Q3;YYY;a) Move Method;b) Move Field;c) Move Class;c)
-teste
+Q1;Most of the methods are delegations in the class. Choose one of the answers below:;a) Data Class;b) Middle Man;c) Lazy Class;b)
+Q2;Which alternative does not relate to this bad smell? Choose one of the answers below:;a) Many complex and responsible methods in terms of processing;b) Delegations are the common processing of methods from the class;c) Few methods with complex and responsible processing;a)
+Q3;Which refactoring Fowler does not indicate as appropriate to solve this smell? Choose one of the answers below:;a) Remove Methods;b) Remove Middle Man;c) Replace Delegation with Inheritance;a)
+Phase 4:
+Q1;Long procedures in source code. Choose one of the answers below:;a) Long Parameter List;b) Message Chains;c) Long Method;c)
+Q2;Which alternative does not relate to this bad smell? Choose one of the answers below:;a) It is sometimes hard to understand long procedures;b) Long and complex procedures cannot be decomposed;c) Some parts of code may be more appropriate in the method than other parts;b)
+Q3;Which refactoring Fowler does not indicate as appropriate to solve this smell? Choose one of the answers below:;a) Extract Method;b) Delete Method;c) Replace Method with Method Object;b)
+Phase 5:
+Q1;Changes conducted in one class require many changes in other classes. Choose one of the answers below:;a) Divergent Change;b) Parallel Inheritance Hierarchies;c) Shotgun Surgery;c)
+Q2;Which alternative does not relate to this bad smell? Choose one of the answers below:;a) Many other classes must be modified when a given class changes.;b) Shotgun Surgery is the opposite of Divergent Change.;c) There is a one-to-one link between common changes and classes;c)
+Q3;Which refactoring Fowler does not indicate as appropriate to solve this smell? Choose one of the answers below:;a) Move Method;b) Move Field;c) Move Class;c)
+
+Q1;Bad smells are real problems in source code. True or false?;a) True;b) False;b)
+Q2;There is no automated tool to support refactoring. True or false?;a) True;b) False;b)
+Q3;Any bad smell is using the same refactoring strategies. True or false?;a) True;b) False;b)
+Q4;Bad smells are symptoms of problems in source code. True or false?;a) True;b) False;a)
+Q5;Fowler discusses 22 different bad smells in the book “Refactoring” (1999). True or false?;a) True;b) False;a)
