@@ -1,11 +1,13 @@
 package projetoFinal;
 
 import java.awt.BorderLayout;
+import java.awt.Button;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowListener;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Random;
@@ -21,13 +23,13 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 @SuppressWarnings("serial")
-public class PainelDePerguntas extends JPanel implements ActionListener{
+public class PainelDePerguntas extends JPanel implements  ActionListener{
 	
 	JPanel painel;
 	int fases = 0, alternativas = 0;	
 	ArrayList<String> opcoes;
 	Questoes q;
-	JButton button = new JButton("Next");
+	JButton button = new JButton("Next");	
 	
 	/*
 	 * Cria o painel no qual serão inseridas as perguntas.
@@ -38,6 +40,8 @@ public class PainelDePerguntas extends JPanel implements ActionListener{
 		this.opcoes = IO.lerArquivo();
 		this.percorrerFases();
 		painel.setBorder(BorderFactory.createEmptyBorder(50,50,70,50));
+		button.addActionListener(this);
+		
 	}
 	
 	/*
@@ -57,7 +61,7 @@ public class PainelDePerguntas extends JPanel implements ActionListener{
 		this.q.criarGrupoBotoes(painel, opcoes);
 		add(painel, BorderLayout.SOUTH);
 		painel.setPreferredSize(new Dimension(800, 200));
-		this.button.addActionListener(this);
+		//this.button.addActionListener(this);
 		add(button);
 	}
 
@@ -68,6 +72,7 @@ public class PainelDePerguntas extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		String mensagem = "Escolha uma das três opções!";
 		String resposta = this.q.getSelecionado();
+
 		if(resposta == null){ //Não selecionou a alternativa.
 			JOptionPane.showMessageDialog(this, mensagem, "Erro", JOptionPane.INFORMATION_MESSAGE);
 		}else{
@@ -81,6 +86,9 @@ public class PainelDePerguntas extends JPanel implements ActionListener{
 			}
 			this.verificaQuestoes();
 		}
+		
+	
+		
 	}
 	
 	protected void verificaQuestoes(){
