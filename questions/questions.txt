@@ -19,8 +19,8 @@ Q1;Changes conducted in one class require many changes in other classes. Choose 
 Q2;Which alternative does not relate to this bad smell? Choose one of the answers below:;a) Many other classes must be modified when a given class changes.;b) Shotgun Surgery is the opposite of Divergent Change.;c) There is a one-to-one link between common changes and classes;c)
 Q3;Which refactoring Fowler does not indicate as appropriate to solve this smell? Choose one of the answers below:;a) Move Method;b) Move Field;c) Move Class;c)
 
-Q1;Bad smells are real problems in source code. True or false?;a) True;b) False;b)
-Q2;There is no automated tool to support refactoring. True or false?;a) True;b) False;b)
-Q3;Any bad smell is using the same refactoring strategies. True or false?;a) True;b) False;b)
-Q4;Bad smells are symptoms of problems in source code. True or false?;a) True;b) False;a)
+Q1;Bad smells are real problems in source code. True or false?;a) True;b) False;c)Skip;b)
+Q2;There is no automated tool to support refactoring. True or false?;a) True;b) False;c)Skip;b)
+Q3;Any bad smell is using the same refactoring strategies. True or false?;a) True;b) False;c)Skip;b)
+Q4;Bad smells are symptoms of problems in source code. True or false?;a) True;b) False;c)Skip;a)
 Q5;Fowler discusses 22 different bad smells in the book “Refactoring” (1999). True or false?;a) True;b) False;a)
