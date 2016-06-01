@@ -57,7 +57,7 @@ public class Questoes extends JLabel implements ActionListener {
 				for(int i = 1; i < 5; i++){
 					opcoes.add(split[i]);
 				}
-
+ 
 				linhas.remove(1); //remove a segunda linha e deixa o cabecalho (Phase X: Descricao);
 
 		        respostaCorreta = l;
