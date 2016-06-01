@@ -13,7 +13,7 @@ public class IO extends JLabel{
 	String [] split;
 
 	/*
-	 * Lê as questões do disco.	
+	 * Le as questoes do disco.	
 	 */
 	protected static ArrayList<String> lerArquivo(){
 		ArrayList<String> linhas = new ArrayList<String>();
