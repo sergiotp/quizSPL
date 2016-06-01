@@ -85,6 +85,10 @@ public class PainelDePerguntas extends JPanel implements  ActionListener{
 				JOptionPane.showMessageDialog(this, "Almost there :(", "", JOptionPane.INFORMATION_MESSAGE);
 				Fowler.fowlers = Fowler.fowlers - 1;
 				Label.atualizarFowler();
+				if (Fowler.fowlers == 0){
+					JOptionPane.showMessageDialog(this, "Game Over", "", JOptionPane.INFORMATION_MESSAGE);
+					System.exit(0);
+				}
 				//Atualizar o numero de questoes incorretas.
 			}
 			this.verificaQuestoes();
