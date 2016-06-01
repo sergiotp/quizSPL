@@ -38,14 +38,14 @@ public class Frame extends JFrame implements ActionListener {
 		
 		
 		/*
-		 * Localização relativa a null, centraliza na tela. Conforme
-		 * especificação da Oracle.
+		 * Localizacao relativa a null, centraliza na tela. Conforme
+		 * especificao da Oracle.
 		 */
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		/*
-		 * Inserção do cabeçalho.
+		 * Insercao do cabecalho.
 		 */
 		JMenuBar barraDeMenus = new JMenuBar();
 		
@@ -124,8 +124,8 @@ public class Frame extends JFrame implements ActionListener {
 
 	protected void sobre() {
 		String sobre = "Trabalho feito para a disciplina "
-				+ "Programação modular,\nda Universidade Federal de Minas Gerais.\n" + "Professor: Douglas Macharet \n"
-				+ "Alunos: Leonardo Apolinário, Pedro Henrique, Marina Werneck e Suelem Loiola.";
+				+ "Reutiliza��o de Software,\nda Universidade Federal de Minas Gerais.\n" + "Professor: Eduardo Figueiredo \n"
+				+ "Alunos: Eduardo Fernandes, Larissa Macedo, \n" + "Leonardo Apolin�rio,S�rgio Henrique e Vinicius Cesar.";
 		JOptionPane.showMessageDialog(this, sobre, "Sobre", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
