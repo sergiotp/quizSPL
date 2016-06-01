@@ -32,8 +32,8 @@ public class Questoes extends JLabel implements ActionListener {
 		}
 	}
 	/*
-	 * TEMPORÁRIO. A idéia é receber o arraylist das linhas e ir removendo as questões e as fases
-	 * do texto a medida que forem sendo respondidas. Essa função só verifica se estão corretas.
+	 *  A ideia eh receber o arraylist das linhas e ir removendo as questoes e as fases
+	 * do texto a medida que forem sendo respondidas. Essa funcao so verifica se estao corretas.
 	 */
 	protected void imprimeLinhas(ArrayList<String> linhas){
 		for(String l:linhas){
@@ -46,9 +46,9 @@ public class Questoes extends JLabel implements ActionListener {
 	 */
 	protected ArrayList<String> montarAlternativas(ArrayList<String> linhas){
 		opcoes = new ArrayList<String>();
-		int count = 0;
+		int count = 0, posicaoRespostaCerta;
 		for(String l:linhas){
-			if(count == 0) { //Aqui a primeira linha contém  o cabeçalho (Phase X: Descrição); 
+			if(count == 0) { //Aqui a primeira linha contem  o cabecalho (Phase X: Descricao); 
 				count++;
 				continue;
 			}
@@ -57,15 +57,22 @@ public class Questoes extends JLabel implements ActionListener {
 				for(int i = 1; i < 5; i++){
 					opcoes.add(split[i]);
 				}
-				linhas.remove(1); //remove a segunta linha e deixa o cabeçalho (Phase X: Descrição);
+
+				linhas.remove(1); //remove a segunda linha e deixa o cabecalho (Phase X: Descricao);
+
+		        respostaCorreta = l;
+		        posicaoRespostaCerta = respostaCorreta.lastIndexOf(";");
+		        respostaCorreta = respostaCorreta.substring(posicaoRespostaCerta + 1);
+			
 				return opcoes;
+			
 			}
 		}
 		return opcoes;
 	}
 	
 	/*
-	 * Lê as questões do disco e insere nos botões.
+	 * Le as questoes do disco e insere nos botoes.
 	 */
 	protected void criarGrupoBotoes(JPanel painel2, ArrayList<String> questoes){
 		ArrayList<String> alternativas = montarAlternativas(questoes);
@@ -88,7 +95,7 @@ public class Questoes extends JLabel implements ActionListener {
 	}
 	
 	/*
-	 * Monta as alternativas das questões.
+	 * Monta as alternativas das questoes.
 	 */
 	protected JRadioButton montarOpcao(String texto){
 		JRadioButton button = new JRadioButton(texto);

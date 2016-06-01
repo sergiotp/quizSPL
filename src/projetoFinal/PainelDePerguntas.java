@@ -66,23 +66,24 @@ public class PainelDePerguntas extends JPanel implements  ActionListener{
 	}
 
 	/*
-	 * Ações a serem tomadas quando o botão for clicado.
+	 * Acoes a serem tomadas quando o botao for clicado.
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String mensagem = "Escolha uma das três opções!";
+		String mensagem = "Escolha uma das tr�s op��es!";
 		String resposta = this.q.getSelecionado();
 
-		if(resposta == null){ //Não selecionou a alternativa.
+		if(resposta == null){ //Nao selecionou a alternativa.
 			JOptionPane.showMessageDialog(this, mensagem, "Erro", JOptionPane.INFORMATION_MESSAGE);
-		}else{
+		}
+		else{
 			if(resposta == "correct"){
-				//System.out.println("OK");
-				//Atualizar o número de questões corretas.
+				System.out.println("OK");
+				//Atualizar o numero de questoes corretas.
 				
 			}else{
-				//System.out.println("NOT OK");
-				//Atualizar o número de questões incorretas.
+				System.out.println("NOT OK");
+				//Atualizar o numero de questoes incorretas.
 			}
 			this.verificaQuestoes();
 		}
