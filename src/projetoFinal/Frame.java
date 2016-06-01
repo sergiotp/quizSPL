@@ -3,15 +3,23 @@ package projetoFinal;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 @SuppressWarnings("serial")
 public class Frame extends JFrame implements ActionListener {
@@ -28,6 +36,8 @@ public class Frame extends JFrame implements ActionListener {
 		this.setSize(820, 360);
 		this.setTitle("Bad Smells Game");
 		
+		
+		
 		/*
 		 * Localização relativa a null, centraliza na tela. Conforme
 		 * especificação da Oracle.
@@ -43,8 +53,28 @@ public class Frame extends JFrame implements ActionListener {
 		this.adicionarOpcoesMenu(barraDeMenus);
 
 		this.setJMenuBar(barraDeMenus);
-
+		
 		this.setVisible(true);
+		
+		//this.comoJogar();
+		
+		JButton buttonAreaYouIn = new JButton("Are you in ?");
+		buttonAreaYouIn.setSize(20, 30);
+		JButton buttonStart = new JButton("Ok, let's start !");
+		buttonStart.setSize(20, 30);
+		JButton buttonQuit = new JButton("No, please quit the game ?");
+		buttonQuit.setSize(20, 30);
+		//buttonAreaYouIn.addActionListener(this);
+		
+		
+		this.painelDeConteudo = getContentPane();
+		this.painelDeConteudo.add(new ComoJogar(), BorderLayout.CENTER);
+		/*
+		this.painelDeConteudo.add(buttonAreaYouIn, FlowLayout.CENTER);
+		this.painelDeConteudo.add(buttonStart, FlowLayout.CENTER);
+		this.painelDeConteudo.add(buttonQuit, FlowLayout.CENTER);
+		*/
+		
 
 	}
 
@@ -59,6 +89,7 @@ public class Frame extends JFrame implements ActionListener {
 		Label.resetar();
 		this.painelDeConteudo.revalidate();
 		this.painelDeConteudo.repaint();
+				
 	}
 
 	protected void destruirPainel() {
@@ -72,8 +103,8 @@ public class Frame extends JFrame implements ActionListener {
 	protected void adicionarOpcoesMenu(JMenuBar barraDeMenus) {
 		JMenu opcao1 = new JMenu("Arquivo");
 		this.adicionarOpcoes(opcao1, "Novo jogo");
-		this.adicionarOpcoes(opcao1, "Ranking Normal");
-		this.adicionarOpcoes(opcao1, "Ranking Dificil");
+		//this.adicionarOpcoes(opcao1, "Ranking Normal");
+		//this.adicionarOpcoes(opcao1, "Ranking Dificil");
 		this.adicionarOpcoes(opcao1, "Sair");
 
 		JMenu opcao2 = new JMenu("Ajuda");
@@ -93,10 +124,13 @@ public class Frame extends JFrame implements ActionListener {
 	}
 
 	protected void comoJogar() {
-		String comoJogar = "Como jogar:\n" + "Basta clicar em uma carta que esta irá virar para cima.\n"
-				+ "Se as duas forem iguais, permanecerão para cima, caso contrário,\n"
-				+ "as duas cartas irão virar para baixo.\n"
-				+ "O jogador vence quando conseguir virar todas as cartas para cima.";
+		String comoJogar = "This game has 5 phases \n"
+				+ "For each phase: \n"
+				+ " -Guess the bad smell.\n"
+				+ " -Choose the right smell characteristic \n"
+				+ " -Choose the appropriate refactoring for the smell \n"
+				+ "You have 5 chances ('Fowlers') to miss answers \n"
+				+ "To receive 5 more Fowlers, answer true or false \n";
 		JOptionPane.showMessageDialog(this, comoJogar, "Como Jogar", JOptionPane.INFORMATION_MESSAGE);
 	}
 
@@ -106,6 +140,8 @@ public class Frame extends JFrame implements ActionListener {
 				+ "Alunos: Leonardo Apolinário, Pedro Henrique, Marina Werneck e Suelem Loiola.";
 		JOptionPane.showMessageDialog(this, sobre, "Sobre", JOptionPane.INFORMATION_MESSAGE);
 	}
+	
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
