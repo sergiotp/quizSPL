@@ -83,7 +83,11 @@ public class PainelDePerguntas extends JPanel implements  ActionListener{
 				
 			}else{
 				JOptionPane.showMessageDialog(this, "Almost there :(", "", JOptionPane.INFORMATION_MESSAGE);
-				Fowler.fowlers = Fowler.fowlers - 1;
+				if (this.fases < 5){
+					Fowler.fowlers = Fowler.fowlers - 1;
+				}else{
+					Fowler.fowlers = Fowler.fowlers - 2;
+				}
 				Label.atualizarFowler();
 				if (Fowler.fowlers == 0){
 					JOptionPane.showMessageDialog(this, "Game Over", "", JOptionPane.INFORMATION_MESSAGE);
@@ -91,6 +95,7 @@ public class PainelDePerguntas extends JPanel implements  ActionListener{
 				}
 				//Atualizar o numero de questoes incorretas.
 			}
+			System.out.println(this.fases);
 			this.verificaQuestoes();
 		}
 		
@@ -111,7 +116,8 @@ public class PainelDePerguntas extends JPanel implements  ActionListener{
 			this.fases++;
 			this.percorrerFases();
 		}else{
-			//O jogo encerrou.
+			JOptionPane.showMessageDialog(this, "You won", "", JOptionPane.INFORMATION_MESSAGE);
+			System.exit(0);
 		}
 	}
 		

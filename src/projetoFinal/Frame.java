@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -60,6 +61,7 @@ public class Frame extends JFrame implements ActionListener {
 		JLabel label  = new JLabel();
 		label.setText("Are you in ?");
 		label.setFont(label.getFont().deriveFont(36.0f));
+		label.setBorder(BorderFactory.createEmptyBorder(10,50,10,350));
 		painelDeConteudo.add(label, BorderLayout.CENTER);
 		this.painelDeConteudo.add(new PainelDeOpcoes(), BorderLayout.SOUTH);
 	
