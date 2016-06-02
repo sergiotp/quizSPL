@@ -134,6 +134,7 @@ public class Frame extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String comando = e.getActionCommand();
+	
 		switch (comando) {
 		case "Novo jogo":
 			this.destruirPainel();
