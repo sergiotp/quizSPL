@@ -33,9 +33,9 @@ public class Frame extends JFrame implements ActionListener {
 	String dificuldade;
 
 	public Frame() {
+		Fowler.fowlers = 5;
 		this.setSize(820, 360);
 		this.setTitle("Bad Smells Game");
-		
 		
 		/*
 		 * Localizacao relativa a null, centraliza na tela. Conforme

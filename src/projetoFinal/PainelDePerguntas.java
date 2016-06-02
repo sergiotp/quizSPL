@@ -70,19 +70,21 @@ public class PainelDePerguntas extends JPanel implements  ActionListener{
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String mensagem = "Escolha uma das três opções!";
+		String mensagem = "Choose one of the three options below!";
 		String resposta = this.q.getSelecionado();
 
 		if(resposta == null){ //Nao selecionou a alternativa.
-			JOptionPane.showMessageDialog(this, mensagem, "Erro", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, mensagem, "Error", JOptionPane.INFORMATION_MESSAGE);
 		}
 		else{
 			if(resposta == "correct"){
-				System.out.println("OK");
+				JOptionPane.showMessageDialog(this, "Correct answer :)", "", JOptionPane.INFORMATION_MESSAGE);
 				//Atualizar o numero de questoes corretas.
 				
 			}else{
-				System.out.println("NOT OK");
+				JOptionPane.showMessageDialog(this, "Almost there :(", "", JOptionPane.INFORMATION_MESSAGE);
+				Fowler.fowlers = Fowler.fowlers - 1;
+				Label.atualizarFowler();
 				//Atualizar o numero de questoes incorretas.
 			}
 			this.verificaQuestoes();

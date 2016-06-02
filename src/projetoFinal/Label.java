@@ -21,7 +21,7 @@ public class Label extends JPanel{
 		 * Dados do rótulo.
 		 */
 		
-		rotulo = new JLabel(" Tentativas: " + jogadas + " Acertos: " + acertos);
+		rotulo = new JLabel("Remaining fowlers: " + Fowler.fowlers);
 		rotulo.setForeground(Color.WHITE);
 		
 		this.add(rotulo);
@@ -33,7 +33,11 @@ public class Label extends JPanel{
 	 * Atualiza o número de jogadas.
 	 */
 	static protected void atualizar(int jogadas, int acertos){
-		rotulo.setText("Tentativas: " + jogadas + " Acertos: " + acertos);
+		rotulo.setText("Remaining fowlers: " + Fowler.fowlers);
+	}
+	
+	static protected void atualizarFowler(){
+		rotulo.setText("Remaining fowlers: " + Fowler.fowlers);
 	}
 	
 	/*
