@@ -37,7 +37,6 @@ public class Frame extends JFrame implements ActionListener {
 		this.setTitle("Bad Smells Game");
 		
 		
-		
 		/*
 		 * Localização relativa a null, centraliza na tela. Conforme
 		 * especificação da Oracle.
@@ -56,25 +55,14 @@ public class Frame extends JFrame implements ActionListener {
 		
 		this.setVisible(true);
 		
-		//this.comoJogar();
-		
-		JButton buttonAreaYouIn = new JButton("Are you in ?");
-		buttonAreaYouIn.setSize(20, 30);
-		JButton buttonStart = new JButton("Ok, let's start !");
-		buttonStart.setSize(20, 30);
-		JButton buttonQuit = new JButton("No, please quit the game ?");
-		buttonQuit.setSize(20, 30);
-		//buttonAreaYouIn.addActionListener(this);
-		
-		
 		this.painelDeConteudo = getContentPane();
-		this.painelDeConteudo.add(new ComoJogar(), BorderLayout.CENTER);
-		/*
-		this.painelDeConteudo.add(buttonAreaYouIn, FlowLayout.CENTER);
-		this.painelDeConteudo.add(buttonStart, FlowLayout.CENTER);
-		this.painelDeConteudo.add(buttonQuit, FlowLayout.CENTER);
-		*/
-		
+		this.painelDeConteudo.add(new ComoJogar(), BorderLayout.NORTH);
+		JLabel label  = new JLabel();
+		label.setText("Are you in ?");
+		label.setFont(label.getFont().deriveFont(36.0f));
+		painelDeConteudo.add(label, BorderLayout.CENTER);
+		this.painelDeConteudo.add(new PainelDeOpcoes(), BorderLayout.SOUTH);
+	
 
 	}
 
