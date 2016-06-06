@@ -29,8 +29,6 @@ public class Frame extends JFrame implements ActionListener {
 	 * Frame principal do jogo.
 	 */
 	private Container contentPanel;
-	private ArrayList<Pontuacao> ranking;
-	private JList<?> list;
 	private PanelFactory panelFactory = new PanelFactory();
 
 	public Frame() {
@@ -76,8 +74,7 @@ public class Frame extends JFrame implements ActionListener {
 		this.contentPanel.add(new Label(), BorderLayout.SOUTH);
 		Label.resetar();
 		this.contentPanel.revalidate();
-		this.contentPanel.repaint();
-				
+		this.contentPanel.repaint();				
 	}
 
 	protected void destroyPanel() {
@@ -85,7 +82,6 @@ public class Frame extends JFrame implements ActionListener {
 			return;
 		}
 		this.contentPanel.removeAll();
-
 	}
 
 	protected void addOptionsToMenu(JMenuBar menuBar) {
@@ -116,10 +112,7 @@ public class Frame extends JFrame implements ActionListener {
 	}
 
 	protected void showAbout() {
-		String sobre = "Trabalho feito para a disciplina "
-				+ "Reutiliza��o de Software,\nda Universidade Federal de Minas Gerais.\n" + "Professor: Eduardo Figueiredo \n"
-				+ "Alunos: Eduardo Fernandes, Larissa Macedo, \n" + "Leonardo Apolin�rio,S�rgio Henrique e Vinicius Cesar.";
-		JOptionPane.showMessageDialog(this, sobre, "Sobre", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(this, GameInfo.getAboutInfo(), "Sobre", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
 

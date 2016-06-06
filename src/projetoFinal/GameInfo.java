@@ -26,6 +26,13 @@ public class GameInfo extends JPanel{
 									+ "You have 5 chances ('Fowlers') to miss answers \n"
 									+ "To receive 5 more Fowlers, answer true or false \n";
 	
+	private static String aboutText = "Trabalho feito para a disciplina "
+									+ "Reutilizacao de Software,\nda Universidade Federal de Minas Gerais.\n" 
+									+ "Professor: Eduardo Figueiredo \n"
+									+ "Alunos: Eduardo Fernandes, Larissa Macedo, \n" 
+									+ "Leonardo Apolinario,Sergio Henrique e Vinicius Cesar.";
+
+	
 	public GameInfo() {						
 		label = new JTextArea(infoText);	
 		this.add(label);
@@ -47,5 +54,8 @@ public class GameInfo extends JPanel{
 		return infoText;
 	}
 	
-	
+	static public String getAboutInfo(){
+		return aboutText;
+	}
+		
 }
