@@ -36,8 +36,8 @@ public class OptionsPanel extends JPanel implements Panel, ActionListener {
 		
 		if (comando == startText){
 			Frame frame = new Frame();
-			frame.destruirPainel();
-			frame.criarPainelDeConteudo("");
+			frame.destroyPanel();
+			frame.createContentPanel("");
 		}
 		else if (comando == quitText){
 			System.exit(0);

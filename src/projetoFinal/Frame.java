@@ -28,10 +28,9 @@ public class Frame extends JFrame implements ActionListener {
 	/*
 	 * Frame principal do jogo.
 	 */
-	private Container painelDeConteudo;
+	private Container contentPanel;
 	private ArrayList<Pontuacao> ranking;
 	private JList<?> list;
-	String dificuldade;
 	private PanelFactory panelFactory = new PanelFactory();
 
 	public Frame() {
@@ -49,83 +48,74 @@ public class Frame extends JFrame implements ActionListener {
 		/*
 		 * Insercao do cabecalho.
 		 */
-		JMenuBar barraDeMenus = new JMenuBar();
+		JMenuBar menuBar = new JMenuBar();
 		
-		this.adicionarOpcoesMenu(barraDeMenus);
-
-		this.setJMenuBar(barraDeMenus);
-		
+		this.addOptionsToMenu(menuBar);
+		this.setJMenuBar(menuBar);		
 		this.setVisible(true);
 		
-		this.painelDeConteudo = getContentPane();
-		this.painelDeConteudo.add(new ComoJogar(), BorderLayout.NORTH);
+		this.contentPanel = getContentPane();
+		this.contentPanel.add(new GameInfo(), BorderLayout.NORTH);
 		JLabel label  = new JLabel();
 		label.setText("Are you in ?");
 		label.setFont(label.getFont().deriveFont(36.0f));
 		label.setBorder(BorderFactory.createEmptyBorder(10,50,10,350));
-		painelDeConteudo.add(label, BorderLayout.CENTER);
-		this.painelDeConteudo.add(panelFactory.getPanel("OPTIONS").draw(), BorderLayout.SOUTH);
+		contentPanel.add(label, BorderLayout.CENTER);
+		this.contentPanel.add(panelFactory.getPanel("OPTIONS").draw(), BorderLayout.SOUTH);
 	
 
 	}
 
-	protected void criarPainelDeConteudo(String dificuldade) {
+	protected void createContentPanel(String dificuldade) {
 		
 		/*
 		 * Container para as questoes.
 		 */
-		this.painelDeConteudo = getContentPane();
-		this.painelDeConteudo.add(panelFactory.getPanel("QUESTIONS").draw(), BorderLayout.CENTER);
-		this.painelDeConteudo.add(new Label(), BorderLayout.SOUTH);
+		this.contentPanel = getContentPane();
+		this.contentPanel.add(panelFactory.getPanel("QUESTIONS").draw(), BorderLayout.CENTER);
+		this.contentPanel.add(new Label(), BorderLayout.SOUTH);
 		Label.resetar();
-		this.painelDeConteudo.revalidate();
-		this.painelDeConteudo.repaint();
+		this.contentPanel.revalidate();
+		this.contentPanel.repaint();
 				
 	}
 
-	protected void destruirPainel() {
-		if (this.painelDeConteudo == null) {
+	protected void destroyPanel() {
+		if (this.contentPanel == null) {
 			return;
 		}
-		this.painelDeConteudo.removeAll();
+		this.contentPanel.removeAll();
 
 	}
 
-	protected void adicionarOpcoesMenu(JMenuBar barraDeMenus) {
-		JMenu opcao1 = new JMenu("Arquivo");
-		this.adicionarOpcoes(opcao1, "Novo jogo");
+	protected void addOptionsToMenu(JMenuBar menuBar) {
+		JMenu optionOne = new JMenu("Arquivo");
+		this.addOptions(optionOne, "Novo jogo");
 		//this.adicionarOpcoes(opcao1, "Ranking Normal");
 		//this.adicionarOpcoes(opcao1, "Ranking Dificil");
-		this.adicionarOpcoes(opcao1, "Sair");
+		this.addOptions(optionOne, "Sair");
 
-		JMenu opcao2 = new JMenu("Ajuda");
-		this.adicionarOpcoes(opcao2, "Como jogar");
-		this.adicionarOpcoes(opcao2, "Sobre");
+		JMenu optionTwo = new JMenu("Ajuda");
+		this.addOptions(optionTwo, "Como jogar");
+		this.addOptions(optionTwo, "Sobre");
 
-		barraDeMenus.add(opcao1);
-		barraDeMenus.add(opcao2);
-		barraDeMenus.setBackground(Color.GRAY);
+		menuBar.add(optionOne);
+		menuBar.add(optionTwo);
+		menuBar.setBackground(Color.GRAY);
 	}
 
-	protected void adicionarOpcoes(JMenu opcao, String texto) {
-		JMenuItem item = new JMenuItem(texto);
-		item.setActionCommand(texto);
+	protected void addOptions(JMenu opcao, String text) {
+		JMenuItem item = new JMenuItem(text);
+		item.setActionCommand(text);
 		item.addActionListener(this);
 		opcao.add(item);
 	}
 
-	protected void comoJogar() {
-		String comoJogar = "This game has 5 phases \n"
-				+ "For each phase: \n"
-				+ " -Guess the bad smell.\n"
-				+ " -Choose the right smell characteristic \n"
-				+ " -Choose the appropriate refactoring for the smell \n"
-				+ "You have 5 chances ('Fowlers') to miss answers \n"
-				+ "To receive 5 more Fowlers, answer true or false \n";
-		JOptionPane.showMessageDialog(this, comoJogar, "Como Jogar", JOptionPane.INFORMATION_MESSAGE);
+	protected void howToPlay() {
+		JOptionPane.showMessageDialog(this, GameInfo.getTextInfo(), "Como Jogar", JOptionPane.INFORMATION_MESSAGE);
 	}
 
-	protected void sobre() {
+	protected void showAbout() {
 		String sobre = "Trabalho feito para a disciplina "
 				+ "Reutiliza��o de Software,\nda Universidade Federal de Minas Gerais.\n" + "Professor: Eduardo Figueiredo \n"
 				+ "Alunos: Eduardo Fernandes, Larissa Macedo, \n" + "Leonardo Apolin�rio,S�rgio Henrique e Vinicius Cesar.";
@@ -136,18 +126,18 @@ public class Frame extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String comando = e.getActionCommand();
+		String command = e.getActionCommand();
 	
-		switch (comando) {
+		switch (command) {
 		case "Novo jogo":
-			this.destruirPainel();
-			this.criarPainelDeConteudo(this.dificuldade);
+			this.destroyPanel();
+			//this.criarPainelDeConteudo(this.dificuldade);
 			break;
 		case "Como jogar":
-			this.comoJogar();
+			this.howToPlay();
 			break;
 		case "Sobre":
-			this.sobre();
+			this.showAbout();
 			break;
 		case "Sair":
 			System.exit(0);
