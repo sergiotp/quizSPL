@@ -16,7 +16,7 @@ public class Jogo extends JPanel {
 	
 	private static int dificuldade;
 
-	protected static void mostrarGUI() {
+	protected static void showGUI() {
 		@SuppressWarnings("unused")
 		JFrame jogo = new Frame();
 	}

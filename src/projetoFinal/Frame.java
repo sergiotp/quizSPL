@@ -34,7 +34,7 @@ public class Frame extends JFrame implements ActionListener {
 	String dificuldade;
 
 	public Frame() {
-		Fowler.fowlers = 5;
+		Fowler.getInstance().setFowler(5);
 		this.setSize(820, 360);
 		this.setTitle("Bad Smells Game");
 		
@@ -126,8 +126,8 @@ public class Frame extends JFrame implements ActionListener {
 
 	protected void sobre() {
 		String sobre = "Trabalho feito para a disciplina "
-				+ "Reutilização de Software,\nda Universidade Federal de Minas Gerais.\n" + "Professor: Eduardo Figueiredo \n"
-				+ "Alunos: Eduardo Fernandes, Larissa Macedo, \n" + "Leonardo Apolinário,Sérgio Henrique e Vinicius Cesar.";
+				+ "Reutilizaï¿½ï¿½o de Software,\nda Universidade Federal de Minas Gerais.\n" + "Professor: Eduardo Figueiredo \n"
+				+ "Alunos: Eduardo Fernandes, Larissa Macedo, \n" + "Leonardo Apolinï¿½rio,Sï¿½rgio Henrique e Vinicius Cesar.";
 		JOptionPane.showMessageDialog(this, sobre, "Sobre", JOptionPane.INFORMATION_MESSAGE);
 	}
 	

@@ -83,13 +83,17 @@ public class PainelDePerguntas extends JPanel implements  ActionListener{
 				
 			}else{
 				JOptionPane.showMessageDialog(this, "Almost there :(", "", JOptionPane.INFORMATION_MESSAGE);
+				int fowlerValue;
 				if (this.fases < 5){
-					Fowler.fowlers = Fowler.fowlers - 1;
+					fowlerValue = Fowler.getInstance().getFowler() - 1;					
+					//Fowler.fowlers = Fowler.fowlers - 1;
 				}else{
-					Fowler.fowlers = Fowler.fowlers - 2;
+					fowlerValue = Fowler.getInstance().getFowler() - 2;
+					//Fowler.fowlers = Fowler.fowlers - 2;
 				}
+				Fowler.getInstance().setFowler(fowlerValue);
 				Label.atualizarFowler();
-				if (Fowler.fowlers == 0){
+				if (Fowler.getInstance().getFowler() == 0){
 					JOptionPane.showMessageDialog(this, "Game Over", "", JOptionPane.INFORMATION_MESSAGE);
 					System.exit(0);
 				}

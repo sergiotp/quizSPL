@@ -21,7 +21,7 @@ public class Label extends JPanel{
 		 * Dados do rótulo.
 		 */
 		
-		rotulo = new JLabel("Remaining fowlers: " + Fowler.fowlers);
+		rotulo = new JLabel("Remaining fowlers: " + Fowler.getInstance().getFowler());
 		rotulo.setForeground(Color.WHITE);
 		
 		this.add(rotulo);
@@ -33,11 +33,11 @@ public class Label extends JPanel{
 	 * Atualiza o número de jogadas.
 	 */
 	static protected void atualizar(int jogadas, int acertos){
-		rotulo.setText("Remaining fowlers: " + Fowler.fowlers);
+		rotulo.setText("Remaining fowlers: " + Fowler.getInstance().getFowler());
 	}
 	
 	static protected void atualizarFowler(){
-		rotulo.setText("Remaining fowlers: " + Fowler.fowlers);
+		rotulo.setText("Remaining fowlers: " + Fowler.getInstance().getFowler());
 	}
 	
 	/*

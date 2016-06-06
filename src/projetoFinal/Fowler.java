@@ -1,10 +1,17 @@
 package projetoFinal;
 
 public class Fowler {
-	static int fowlers;
+	private int fowlers;
+	private static Fowler instance = new Fowler();
+	
+	private Fowler(){}
 	
 	public int decrementaFowler() {
 		return this.fowlers -= fowlers;
+	}
+	
+	public static Fowler getInstance(){
+		return instance;
 	}
 	
 	protected int getFowler() {
