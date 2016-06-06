@@ -8,12 +8,12 @@ import javax.swing.JPanel;
 
 public class OptionsPanel extends JPanel implements Panel, ActionListener {
 
-	static JPanel  painelDeOpcoes;
+	static JPanel  optionsPanel;
 	static private String startText = "Ok, let's start !";
 	static private String quitText = "No, please quit the game ?";
 	
 	public OptionsPanel() {
-		painelDeOpcoes = new JPanel();
+		optionsPanel = new JPanel();
 		JButton buttonStart = new JButton(startText);
 		buttonStart.setSize(20, 30);
 		buttonStart.addActionListener(this);
@@ -37,7 +37,7 @@ public class OptionsPanel extends JPanel implements Panel, ActionListener {
 		if (comando == startText){
 			Frame frame = new Frame();
 			frame.destroyPanel();
-			frame.createContentPanel("");
+			frame.createContentPanel();
 		}
 		else if (comando == quitText){
 			System.exit(0);

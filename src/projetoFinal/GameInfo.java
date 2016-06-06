@@ -46,7 +46,7 @@ public class GameInfo extends JPanel{
 		
 	}
 
-	static protected void atualizar(int jogadas, int acertos){
+	static protected void update(int jogadas, int acertos){
 		label.setText("teste 2");
 	}
 	

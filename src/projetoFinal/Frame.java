@@ -64,8 +64,7 @@ public class Frame extends JFrame implements ActionListener {
 
 	}
 
-	protected void createContentPanel(String dificuldade) {
-		
+	protected void createContentPanel() {		
 		/*
 		 * Container para as questoes.
 		 */
@@ -100,11 +99,11 @@ public class Frame extends JFrame implements ActionListener {
 		menuBar.setBackground(Color.GRAY);
 	}
 
-	protected void addOptions(JMenu opcao, String text) {
+	protected void addOptions(JMenu option, String text) {
 		JMenuItem item = new JMenuItem(text);
 		item.setActionCommand(text);
 		item.addActionListener(this);
-		opcao.add(item);
+		option.add(item);
 	}
 
 	protected void howToPlay() {

@@ -6,7 +6,7 @@ public class Fowler {
 	
 	private Fowler(){}
 	
-	public int decrementaFowler() {
+	public int decrementFowler() {
 		return this.fowlers -= fowlers;
 	}
 	
