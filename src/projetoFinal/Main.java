@@ -10,7 +10,7 @@ public class Main {
 		 */
 		 javax.swing.SwingUtilities.invokeLater(new Runnable() {
 	            public void run() {
-	               Jogo.showGUI();
+	               Game.showGUI();
 	            }
 	        }); 
 	}

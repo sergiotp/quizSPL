@@ -9,16 +9,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
-public class Jogo extends JPanel {
+public class Game extends JPanel {
 	
-	private static ArrayList<Pontuacao> ranking;
-	private static String [] split;
-	
-	private static int dificuldade;
-
 	protected static void showGUI() {
 		@SuppressWarnings("unused")
-		JFrame jogo = new Frame();
+		JFrame game = new Frame();
 	}
 	
 	/*
