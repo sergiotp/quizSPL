@@ -32,6 +32,7 @@ public class Frame extends JFrame implements ActionListener {
 	private ArrayList<Pontuacao> ranking;
 	private JList<?> list;
 	String dificuldade;
+	private PanelFactory panelFactory = new PanelFactory();
 
 	public Frame() {
 		Fowler.getInstance().setFowler(5);
@@ -63,7 +64,7 @@ public class Frame extends JFrame implements ActionListener {
 		label.setFont(label.getFont().deriveFont(36.0f));
 		label.setBorder(BorderFactory.createEmptyBorder(10,50,10,350));
 		painelDeConteudo.add(label, BorderLayout.CENTER);
-		this.painelDeConteudo.add(new PainelDeOpcoes(), BorderLayout.SOUTH);
+		this.painelDeConteudo.add(panelFactory.getPanel("OPTIONS").draw(), BorderLayout.SOUTH);
 	
 
 	}
@@ -74,7 +75,7 @@ public class Frame extends JFrame implements ActionListener {
 		 * Container para as questoes.
 		 */
 		this.painelDeConteudo = getContentPane();
-		this.painelDeConteudo.add(new PainelDePerguntas(), BorderLayout.CENTER);
+		this.painelDeConteudo.add(panelFactory.getPanel("QUESTIONS").draw(), BorderLayout.CENTER);
 		this.painelDeConteudo.add(new Label(), BorderLayout.SOUTH);
 		Label.resetar();
 		this.painelDeConteudo.revalidate();
