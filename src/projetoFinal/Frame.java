@@ -142,12 +142,6 @@ public class Frame extends JFrame implements ActionListener {
 			this.destruirPainel();
 			this.criarPainelDeConteudo(this.dificuldade);
 			break;
-		case "Ranking Normal":
-			this.mostrarRanking(8);
-			break;
-		case "Ranking Dificil":
-			this.mostrarRanking(16);
-			break;
 		case "Como jogar":
 			this.comoJogar();
 			break;
@@ -158,28 +152,6 @@ public class Frame extends JFrame implements ActionListener {
 			System.exit(0);
 		}
 
-	}
-
-	protected void mostrarRanking(int nivelDificuldade) {
-		Jogo.dificuldade(nivelDificuldade);
-		this.ranking = Jogo.montarRanking();
-		JOptionPane.showMessageDialog(this,
-				"JOGADOR " + " JOGADAS\n" + this.ranking.get(0).getNome() + " " + this.ranking.get(0).getNumeroJogadas() + " \n"
-						+ this.ranking.get(1).getNome() + " " + this.ranking.get(1).getNumeroJogadas() + " \n"
-						+ this.ranking.get(2).getNome() + " " + this.ranking.get(2).getNumeroJogadas() + " \n"
-						+ this.ranking.get(3).getNome() + " " + this.ranking.get(3).getNumeroJogadas() + " \n"
-						+ this.ranking.get(4).getNome() + " " + this.ranking.get(4).getNumeroJogadas() + " \n" + " \n",
-				"Ranking", JOptionPane.INFORMATION_MESSAGE);
-	}
-
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	protected String escolherDificuldade() {
-		this.list = new JList(new String[] { "Normal", "Difícil" });
-		JOptionPane.showMessageDialog(this, this.list, "Nível de Dificuldade", JOptionPane.PLAIN_MESSAGE);
-		if (this.list.getSelectedValue() == null)
-			return null;
-		else
-			return this.list.getSelectedValue().toString();
 	}
 
 }

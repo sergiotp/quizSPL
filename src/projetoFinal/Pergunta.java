@@ -88,7 +88,7 @@ public class Pergunta extends JLabel implements ActionListener{
 					return;
 				}
 				nomeJogador = nomeJogador.replaceAll("\\s+","_");
-				Jogo.inserirPontuacao(nomeJogador, numeroDeTentativas, dificuldade);
+				//Jogo.inserirPontuacao(nomeJogador, numeroDeTentativas, dificuldade);
 				this.atualizar();
 				Label.resetar();
 			}
