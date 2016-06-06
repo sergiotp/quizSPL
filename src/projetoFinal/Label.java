@@ -10,43 +10,36 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class Label extends JPanel{
 	
-	/*
-	 * Cria o rodapé com a pontuação do jogador.
-	 */
-	private static int jogadas = 0, acertos = 0;
-	static JLabel rotulo;
+	private static int numberOfPlay = 0, hits = 0;
+	private static JLabel label;
 	
 	public Label() {
-		/*
-		 * Dados do rótulo.
-		 */
+		label = new JLabel("Remaining fowlers: " + Fowler.getInstance().getFowler());
+		label.setForeground(Color.WHITE);
 		
-		rotulo = new JLabel("Remaining fowlers: " + Fowler.getInstance().getFowler());
-		rotulo.setForeground(Color.WHITE);
-		
-		this.add(rotulo);
+		this.add(label);
 		this.setBackground(Color.DARK_GRAY);
 		this.setLayout(new FlowLayout(FlowLayout.CENTER));
 		this.setPreferredSize(new Dimension(getWidth(),30));
 	}
+
 	/*
 	 * Atualiza o número de jogadas.
 	 */
-	static protected void atualizar(int jogadas, int acertos){
-		rotulo.setText("Remaining fowlers: " + Fowler.getInstance().getFowler());
+	static protected void update(int jogadas, int acertos){
+		label.setText("Remaining fowlers: " + Fowler.getInstance().getFowler());
 	}
 	
-	static protected void atualizarFowler(){
-		rotulo.setText("Remaining fowlers: " + Fowler.getInstance().getFowler());
+	static protected void updateFowler(){
+		label.setText("Remaining fowlers: " + Fowler.getInstance().getFowler());
 	}
 	
 	/*
 	 * Reinicia os contadores do jogo.
 	 */
-	
-	static protected void resetar(){
-		jogadas = 0;
-		acertos = 0;
+	static protected void reset(){
+		numberOfPlay = 0;
+		hits = 0;
 	}
 	
 }

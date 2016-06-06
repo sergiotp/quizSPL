@@ -15,33 +15,33 @@ import javax.swing.JPanel;
 
 public class QuestionsPanel extends JPanel implements Panel, ActionListener {
 
-	JPanel painel;
-	int fases = 0, alternativas = 0;	
-	ArrayList<String> opcoes;
-	Questoes q;
-	JButton button = new JButton("Next");	
+	private JPanel panel;
+	private int phases = 0, alternatives = 0;	
+	private ArrayList<String> options;
+	private Questions q;
+	private JButton button = new JButton("Next");	
 	
 	public QuestionsPanel() {
 		this.setBackground(Color.LIGHT_GRAY);
-		this.painel = new JPanel(new GridLayout(0, 1));
-		this.opcoes = IO.lerArquivo();
-		this.percorrerFases();
-		painel.setBorder(BorderFactory.createEmptyBorder(50,50,70,50));
+		this.panel = new JPanel(new GridLayout(0, 1));
+		this.options = IO.readFile();
+		this.goThroughPhases();
+		panel.setBorder(BorderFactory.createEmptyBorder(50,50,70,50));
 		button.addActionListener(this);
 	}
 	
-	public void percorrerFases(){
-		this.q = new Questoes();
-		this.q.fase(this, opcoes);
-		this.percorrerQuestoes();
+	public void goThroughPhases(){
+		this.q = new Questions();
+		this.q.generatePhase(this, options);
+		this.goThroughQuestions();
 	
 	}
 
-	public void percorrerQuestoes(){
+	public void goThroughQuestions(){
 		
-		this.q.criarGrupoBotoes(painel, opcoes);
-		add(painel, BorderLayout.SOUTH);
-		painel.setPreferredSize(new Dimension(800, 200));
+		this.q.createButtonGroup(panel, options);
+		add(panel, BorderLayout.SOUTH);
+		panel.setPreferredSize(new Dimension(800, 200));
 		//this.button.addActionListener(this);
 		add(button);
 	}
@@ -54,21 +54,21 @@ public class QuestionsPanel extends JPanel implements Panel, ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String mensagem = "Choose one of the three options below!";
-		String resposta = this.q.getSelecionado();
+		String message = "Choose one of the three options below!";
+		String answer = this.q.getSelected();
 
-		if(resposta == null){ //Nao selecionou a alternativa.
-			JOptionPane.showMessageDialog(this, mensagem, "Error", JOptionPane.INFORMATION_MESSAGE);
+		if(answer == null){ //Nao selecionou a alternativa.
+			JOptionPane.showMessageDialog(this, message, "Error", JOptionPane.INFORMATION_MESSAGE);
 		}
 		else{
-			if(resposta == "correct"){
+			if(answer == "correct"){
 				JOptionPane.showMessageDialog(this, "Correct answer :)", "", JOptionPane.INFORMATION_MESSAGE);
 				//Atualizar o numero de questoes corretas.
 				
 			}else{
 				JOptionPane.showMessageDialog(this, "Almost there :(", "", JOptionPane.INFORMATION_MESSAGE);
 				int fowlerValue;
-				if (this.fases < 5){
+				if (this.phases < 5){
 					fowlerValue = Fowler.getInstance().getFowler() - 1;					
 					//Fowler.fowlers = Fowler.fowlers - 1;
 				}else{
@@ -76,29 +76,29 @@ public class QuestionsPanel extends JPanel implements Panel, ActionListener {
 					//Fowler.fowlers = Fowler.fowlers - 2;
 				}
 				Fowler.getInstance().setFowler(fowlerValue);
-				Label.atualizarFowler();
+				Label.updateFowler();
 				if (Fowler.getInstance().getFowler() == 0){
 					JOptionPane.showMessageDialog(this, "Game Over", "", JOptionPane.INFORMATION_MESSAGE);
 					System.exit(0);
 				}
 				//Atualizar o numero de questoes incorretas.
 			}
-			System.out.println(this.fases);
+			System.out.println(this.phases);
 			this.verificaQuestoes();
 		}
 	}
 	protected void verificaQuestoes(){
-		if(this.alternativas < 2){//Ainda há alternativas a serem respondidas nessa fase.
-			this.alternativas++;
+		if(this.alternatives < 2){//Ainda há alternativas a serem respondidas nessa fase.
+			this.alternatives++;
 			this.clearPainel();
-			this.percorrerQuestoes();
-		}else if(this.fases < 5){
-			this.opcoes.remove(0); //Remove o cabeçalho Phase X: Descrição
+			this.goThroughQuestions();
+		}else if(this.phases < 5){
+			this.options.remove(0); //Remove o cabeçalho Phase X: Descrição
 			this.clearPainel();
 			this.clearAll();
-			this.alternativas = 0;
-			this.fases++;
-			this.percorrerFases();
+			this.alternatives = 0;
+			this.phases++;
+			this.goThroughPhases();
 		}else{
 			JOptionPane.showMessageDialog(this, "You won", "", JOptionPane.INFORMATION_MESSAGE);
 			System.exit(0);
@@ -109,9 +109,9 @@ public class QuestionsPanel extends JPanel implements Panel, ActionListener {
 	 * Limpa o painel 
 	 */
 	protected void clearPainel(){
-		this.painel.removeAll();;
-		this.painel.revalidate();
-		this.painel.repaint();
+		this.panel.removeAll();;
+		this.panel.revalidate();
+		this.panel.repaint();
 	}
 	
 	protected void clearAll(){

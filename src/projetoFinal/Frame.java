@@ -72,7 +72,7 @@ public class Frame extends JFrame implements ActionListener {
 		this.contentPanel = getContentPane();
 		this.contentPanel.add(panelFactory.getPanel("QUESTIONS").draw(), BorderLayout.CENTER);
 		this.contentPanel.add(new Label(), BorderLayout.SOUTH);
-		Label.resetar();
+		Label.reset();
 		this.contentPanel.revalidate();
 		this.contentPanel.repaint();				
 	}
@@ -115,8 +115,6 @@ public class Frame extends JFrame implements ActionListener {
 		JOptionPane.showMessageDialog(this, GameInfo.getAboutInfo(), "Sobre", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
-
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String command = e.getActionCommand();
@@ -135,7 +133,5 @@ public class Frame extends JFrame implements ActionListener {
 		case "Sair":
 			System.exit(0);
 		}
-
 	}
-
 }

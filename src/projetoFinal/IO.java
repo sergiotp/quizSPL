@@ -12,26 +12,23 @@ public class IO extends JLabel{
 	
 	String [] split;
 
-	/*
-	 * Le as questoes do disco.	
-	 */
-	protected static ArrayList<String> lerArquivo(){
-		ArrayList<String> linhas = new ArrayList<String>();
-		String linha;
+	protected static ArrayList<String> readFile(){
+		ArrayList<String> lines = new ArrayList<String>();
+		String line;
 		Scanner in = null;
-		String arquivo = "questions/questions.txt";
+		String file = "questions/questions.txt";
 		try {
-			in = new Scanner(new FileReader(arquivo));
+			in = new Scanner(new FileReader(file));
 			while (in.hasNextLine()) {
-				linha = in.nextLine();
-				linhas.add(linha);
+				line = in.nextLine();
+				lines.add(line);
 			}
 		} catch (IOException e) {
 			System.out.println(e);
 		} finally {
 			in.close();
 		}
-		return linhas;
+		return lines;
 	}
 	
 	

@@ -73,12 +73,12 @@ public class Pergunta extends JLabel implements ActionListener{
 		if( this.imagensViradas() == 2){
 		if(numeroDeViradas.get(0).getNumero() != numeroDeViradas.get(1).getNumero()){
 			numeroDeTentativas++;
-			Label.atualizar(numeroDeTentativas, numeroDeAcertos);
+			Label.update(numeroDeTentativas, numeroDeAcertos);
 			this.tempo();
 		}else{
 			numeroDeTentativas++;
 			numeroDeAcertos++;
-			Label.atualizar(numeroDeTentativas, numeroDeAcertos);
+			Label.update(numeroDeTentativas, numeroDeAcertos);
 			if(numeroDeAcertos == dificuldade){
 				nomeJogador = JOptionPane.showInputDialog(this, "Parabéns, você venceu com " + numeroDeTentativas + " tentativas!\n" + "Digite o seu nome: ");
 				
@@ -90,7 +90,7 @@ public class Pergunta extends JLabel implements ActionListener{
 				nomeJogador = nomeJogador.replaceAll("\\s+","_");
 				//Jogo.inserirPontuacao(nomeJogador, numeroDeTentativas, dificuldade);
 				this.atualizar();
-				Label.resetar();
+				Label.reset();
 			}
 			numeroDeViradas.clear();
 			
