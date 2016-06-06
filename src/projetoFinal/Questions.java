@@ -24,10 +24,10 @@ public class Questions extends JLabel implements ActionListener {
 	/*
 	 * Gera o label no início da fase.
 	 */
-	protected void generatePhase(JPanel painel, ArrayList<String> linhas){
-		for(String l:linhas){
+	protected void generatePhase(JPanel panel, ArrayList<String> lines){
+		for(String l:lines){
 			split = l.split(";");
-			createLabel(painel, split[0]);
+			createLabel(panel, split[0]);
 			break;
 		}
 	}
@@ -36,8 +36,8 @@ public class Questions extends JLabel implements ActionListener {
 	 *  A ideia eh receber o arraylist das linhas e ir removendo as questoes e as fases
 	 * do texto a medida que forem sendo respondidas. Essa funcao so verifica se estao corretas.
 	 */
-	protected void printLines(ArrayList<String> linhas){
-		for(String l:linhas){
+	protected void printLines(ArrayList<String> lines){
+		for(String l:lines){
 			System.out.println(l);
 		}
 	}
@@ -45,10 +45,10 @@ public class Questions extends JLabel implements ActionListener {
 	/*
 	 * 
 	 */
-	protected ArrayList<String> createAlternatives(ArrayList<String> linhas){
+	protected ArrayList<String> createAlternatives(ArrayList<String> lines){
 		options = new ArrayList<String>();
-		int count = 0, posicaoRespostaCerta;
-		for(String l:linhas){
+		int count = 0, correctAnswerPosition;
+		for(String l:lines){
 			if(count == 0) { //Aqui a primeira linha contem  o cabecalho (Phase X: Descricao); 
 				count++;
 				continue;
@@ -59,11 +59,11 @@ public class Questions extends JLabel implements ActionListener {
 					options.add(split[i]);
 				}
  
-				linhas.remove(1); //remove a segunda linha e deixa o cabecalho (Phase X: Descricao);
+				lines.remove(1); //remove a segunda linha e deixa o cabecalho (Phase X: Descricao);
 
 		        correctAnswer = l;
-		        posicaoRespostaCerta = correctAnswer.lastIndexOf(";");
-		        correctAnswer = correctAnswer.substring(posicaoRespostaCerta + 1);
+		        correctAnswerPosition = correctAnswer.lastIndexOf(";");
+		        correctAnswer = correctAnswer.substring(correctAnswerPosition + 1);
 			
 				return options;
 			
@@ -75,31 +75,31 @@ public class Questions extends JLabel implements ActionListener {
 	/*
 	 * Le as questoes do disco e insere nos botoes.
 	 */
-	protected void createButtonGroup(JPanel painel2, ArrayList<String> questoes){
-		ArrayList<String> alternativas = createAlternatives(questoes);
+	protected void createButtonGroup(JPanel panel, ArrayList<String> questions){
+		ArrayList<String> alternatives = createAlternatives(questions);
 		this.buttons = new ButtonGroup();
-		JRadioButton opcao;
-		createLabel(painel2, alternativas.get(0));
+		JRadioButton option;
+		createLabel(panel, alternatives.get(0));
 		for(int i =1; i < 4; i++){
-			opcao = createOptions(alternativas.get(i));
-			buttons.add(opcao);
-			painel2.add(opcao);
+			option = createOptions(alternatives.get(i));
+			buttons.add(option);
+			panel.add(option);
 		}
 	}
 	/*
 	 * Cria o label no painel.
 	 */
-	public void createLabel(JPanel painel, String texto){
-		JLabel label = new JLabel(texto);
+	public void createLabel(JPanel panel, String text){
+		JLabel label = new JLabel(text);
 		label.setHorizontalAlignment(CENTER);
-		painel.add(label, BorderLayout.NORTH);
+		panel.add(label, BorderLayout.NORTH);
 	}
 	
 	/*
 	 * Monta as alternativas das questoes.
 	 */
-	protected JRadioButton createOptions(String texto){
-		JRadioButton button = new JRadioButton(texto);
+	protected JRadioButton createOptions(String text){
+		JRadioButton button = new JRadioButton(text);
         button.setMnemonic(KeyEvent.VK_C);
         button.addActionListener(this);
         return button;
@@ -110,11 +110,11 @@ public class Questions extends JLabel implements ActionListener {
 	 * Citar fonte corretamente.
 	 */
 	public String getSelected() {
-        for (Enumeration<AbstractButton> auxBotoes = this.buttons.getElements();auxBotoes.hasMoreElements();) {
-            AbstractButton botao = auxBotoes.nextElement();
+        for (Enumeration<AbstractButton> auxButtons = this.buttons.getElements();auxButtons.hasMoreElements();) {
+            AbstractButton button = auxButtons.nextElement();
 
-            if (botao.isSelected()) {
-            	this.selected = (String)botao.getText().substring(0, 2);
+            if (button.isSelected()) {
+            	this.selected = (String)button.getText().substring(0, 2);
             	if(this.selected.equals(correctAnswer)){
             		return "correct";
             	}else{
