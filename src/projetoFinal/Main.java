@@ -1,5 +1,7 @@
 package projetoFinal;
 
+import interfacePack.Game;
+
 public class Main {
 
 	public static void main(String[] args) {

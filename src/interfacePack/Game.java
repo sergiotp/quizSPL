@@ -1,6 +1,4 @@
-package projetoFinal;
-
-import interfacePack.Frame;
+package interfacePack;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -14,7 +12,7 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class Game extends JPanel {
 	
-	protected static void showGUI() {
+	public static void showGUI() {
 		@SuppressWarnings("unused")
 		JFrame game = new Frame();
 	}

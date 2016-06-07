@@ -1,4 +1,4 @@
-package projetoFinal;
+package interfacePack;
 
 import java.awt.Color;
 import java.awt.Dimension;
