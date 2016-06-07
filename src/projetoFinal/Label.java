@@ -32,14 +32,14 @@ public class Label extends JPanel{
 		label.setText("Remaining fowlers: " + Fowler.getInstance().getFowler());
 	}
 	
-	static protected void updateFowler(){
+	static public void updateFowler(){
 		label.setText("Remaining fowlers: " + Fowler.getInstance().getFowler());
 	}
 	
 	/*
 	 * Reinicia os contadores do jogo.
 	 */
-	static protected void reset(){
+	static public void reset(){
 		numberOfPlay = 0;
 		hits = 0;
 	}

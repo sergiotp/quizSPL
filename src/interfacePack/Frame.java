@@ -1,4 +1,4 @@
-package projetoFinal;
+package interfacePack;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -22,6 +22,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import projetoFinal.GameInfo;
+import projetoFinal.Label;
 import businessPack.Fowler;
 
 @SuppressWarnings("serial")

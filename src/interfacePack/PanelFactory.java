@@ -1,4 +1,5 @@
-package projetoFinal;
+package interfacePack;
+
 
 public class PanelFactory {
 	public Panel getPanel(String panelType){
