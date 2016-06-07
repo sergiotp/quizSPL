@@ -41,9 +41,6 @@ public class GameInfo extends JPanel{
 		label.setFont(label.getFont().deriveFont(18.0f));
 		label.setBorder(BorderFactory.createEmptyBorder(10,50,10,350));
 		label.setBackground(Color.LIGHT_GRAY);
-		
-		
-		
 	}
 
 	static protected void update(int jogadas, int acertos){

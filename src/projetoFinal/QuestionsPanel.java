@@ -13,6 +13,10 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import businessPack.Fowler;
+import businessPack.IO;
+import businessPack.Questions;
+
 public class QuestionsPanel extends JPanel implements Panel, ActionListener {
 
 	private JPanel panel;

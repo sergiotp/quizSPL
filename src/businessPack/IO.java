@@ -1,4 +1,4 @@
-package projetoFinal;
+package businessPack;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.util.Scanner;
 @SuppressWarnings("serial")
 public class IO {
 		
-	protected static ArrayList<String> readFile(){
+	public static ArrayList<String> readFile(){
 		ArrayList<String> lines = new ArrayList<String>();
 		String line;
 		Scanner in = null;

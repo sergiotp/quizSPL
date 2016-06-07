@@ -1,4 +1,4 @@
-package projetoFinal;
+package businessPack;
 
 public class Fowler {
 	private int fowlers;
@@ -14,11 +14,11 @@ public class Fowler {
 		return instance;
 	}
 	
-	protected int getFowler() {
+	public int getFowler() {
 		return this.fowlers;
 	}
 	
-	protected int setFowler(int fowlers) {
+	public int setFowler(int fowlers) {
 		return this.fowlers = fowlers;
 	}
 }

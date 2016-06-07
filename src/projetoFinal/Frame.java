@@ -22,6 +22,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import businessPack.Fowler;
+
 @SuppressWarnings("serial")
 public class Frame extends JFrame implements ActionListener {
 	

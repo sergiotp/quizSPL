@@ -7,6 +7,8 @@ import java.awt.FlowLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import businessPack.Fowler;
+
 @SuppressWarnings("serial")
 public class Label extends JPanel{
 	

@@ -1,4 +1,4 @@
-package projetoFinal;
+package businessPack;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -24,7 +24,7 @@ public class Questions extends JLabel implements ActionListener {
 	/*
 	 * Gera o label no início da fase.
 	 */
-	protected void generatePhase(JPanel panel, ArrayList<String> lines){
+	public void generatePhase(JPanel panel, ArrayList<String> lines){
 		for(String l:lines){
 			split = l.split(";");
 			createLabel(panel, split[0]);
@@ -75,7 +75,7 @@ public class Questions extends JLabel implements ActionListener {
 	/*
 	 * Le as questoes do disco e insere nos botoes.
 	 */
-	protected void createButtonGroup(JPanel panel, ArrayList<String> questions){
+	public void createButtonGroup(JPanel panel, ArrayList<String> questions){
 		ArrayList<String> alternatives = createAlternatives(questions);
 		this.buttons = new ButtonGroup();
 		JRadioButton option;
