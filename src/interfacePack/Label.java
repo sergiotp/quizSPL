@@ -25,9 +25,6 @@ public class Label extends JPanel{
 		this.setPreferredSize(new Dimension(getWidth(),30));
 	}
 
-	/*
-	 * Atualiza o número de jogadas.
-	 */
 	static protected void update(int jogadas, int acertos){
 		label.setText("Remaining fowlers: " + Fowler.getInstance().getFowler());
 	}
@@ -36,12 +33,8 @@ public class Label extends JPanel{
 		label.setText("Remaining fowlers: " + Fowler.getInstance().getFowler());
 	}
 	
-	/*
-	 * Reinicia os contadores do jogo.
-	 */
 	static public void reset(){
 		numberOfPlay = 0;
 		hits = 0;
-	}
-	
+	}	
 }

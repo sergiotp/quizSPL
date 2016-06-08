@@ -21,9 +21,6 @@ public class Questions extends JLabel implements ActionListener {
 	private ButtonGroup buttons;
 	private ArrayList<String> options;
 	
-	/*
-	 * Gera o label no início da fase.
-	 */
 	public void generatePhase(JPanel panel, ArrayList<String> lines){
 		for(String l:lines){
 			split = l.split(";");
@@ -32,24 +29,17 @@ public class Questions extends JLabel implements ActionListener {
 		}
 	}
 	
-	/*
-	 *  A ideia eh receber o arraylist das linhas e ir removendo as questoes e as fases
-	 * do texto a medida que forem sendo respondidas. Essa funcao so verifica se estao corretas.
-	 */
 	protected void printLines(ArrayList<String> lines){
 		for(String l:lines){
 			System.out.println(l);
 		}
 	}
 		
-	/*
-	 * 
-	 */
 	protected ArrayList<String> createAlternatives(ArrayList<String> lines){
 		options = new ArrayList<String>();
 		int count = 0, correctAnswerPosition;
 		for(String l:lines){
-			if(count == 0) { //Aqui a primeira linha contem  o cabecalho (Phase X: Descricao); 
+			if(count == 0) { 
 				count++;
 				continue;
 			}
@@ -59,22 +49,18 @@ public class Questions extends JLabel implements ActionListener {
 					options.add(split[i]);
 				}
  
-				lines.remove(1); //remove a segunda linha e deixa o cabecalho (Phase X: Descricao);
+				lines.remove(1);
 
 		        correctAnswer = l;
 		        correctAnswerPosition = correctAnswer.lastIndexOf(";");
 		        correctAnswer = correctAnswer.substring(correctAnswerPosition + 1);
 			
 				return options;
-			
 			}
 		}
 		return options;
 	}
 	
-	/*
-	 * Le as questoes do disco e insere nos botoes.
-	 */
 	public void createButtonGroup(JPanel panel, ArrayList<String> questions){
 		ArrayList<String> alternatives = createAlternatives(questions);
 		this.buttons = new ButtonGroup();
@@ -86,18 +72,13 @@ public class Questions extends JLabel implements ActionListener {
 			panel.add(option);
 		}
 	}
-	/*
-	 * Cria o label no painel.
-	 */
+
 	public void createLabel(JPanel panel, String text){
 		JLabel label = new JLabel(text);
 		label.setHorizontalAlignment(CENTER);
 		panel.add(label, BorderLayout.NORTH);
 	}
 	
-	/*
-	 * Monta as alternativas das questoes.
-	 */
 	protected JRadioButton createOptions(String text){
 		JRadioButton button = new JRadioButton(text);
         button.setMnemonic(KeyEvent.VK_C);
@@ -105,10 +86,6 @@ public class Questions extends JLabel implements ActionListener {
         return button;
 	}
 	
-	/*
-	 * 
-	 * Citar fonte corretamente.
-	 */
 	public String getSelected() {
         for (Enumeration<AbstractButton> auxButtons = this.buttons.getElements();auxButtons.hasMoreElements();) {
             AbstractButton button = auxButtons.nextElement();

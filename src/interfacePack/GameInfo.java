@@ -14,9 +14,6 @@ import javax.swing.JTextArea;
 @SuppressWarnings("serial")
 public class GameInfo extends JPanel{
 	
-	/*
-	 * Cria o rodapé com a pontuação do jogador.
-	 */
 	private static JTextArea  label;
 	private static String infoText = "This game has 5 phases \r\n"
 									+ "For each phase: \r\n"
@@ -53,6 +50,5 @@ public class GameInfo extends JPanel{
 	
 	static public String getAboutInfo(){
 		return aboutText;
-	}
-		
+	}		
 }

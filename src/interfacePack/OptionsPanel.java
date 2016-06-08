@@ -26,7 +26,6 @@ public class OptionsPanel extends JPanel implements Panel, ActionListener {
 	
 	@Override
 	public JPanel draw() {
-		// TODO Auto-generated method stub
 		return new OptionsPanel();
 	}
 	
@@ -41,8 +40,6 @@ public class OptionsPanel extends JPanel implements Panel, ActionListener {
 		}
 		else if (comando == quitText){
 			System.exit(0);
-		}
-		
+		}		
 	}
-
 }

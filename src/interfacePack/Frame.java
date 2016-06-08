@@ -27,9 +27,6 @@ import businessPack.Fowler;
 @SuppressWarnings("serial")
 public class Frame extends JFrame implements ActionListener {
 	
-	/*
-	 * Frame principal do jogo.
-	 */
 	private Container contentPanel;
 	private PanelFactory panelFactory = new PanelFactory();
 
@@ -38,16 +35,9 @@ public class Frame extends JFrame implements ActionListener {
 		this.setSize(820, 360);
 		this.setTitle("Bad Smells Game");
 		
-		/*
-		 * Localizacao relativa a null, centraliza na tela. Conforme
-		 * especificao da Oracle.
-		 */
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		/*
-		 * Insercao do cabecalho.
-		 */
 		JMenuBar menuBar = new JMenuBar();
 		
 		this.addOptionsToMenu(menuBar);
@@ -67,9 +57,6 @@ public class Frame extends JFrame implements ActionListener {
 	}
 
 	protected void createContentPanel() {		
-		/*
-		 * Container para as questoes.
-		 */
 		this.contentPanel = getContentPane();
 		this.contentPanel.add(panelFactory.getPanel("QUESTIONS").draw(), BorderLayout.CENTER);
 		this.contentPanel.add(new Label(), BorderLayout.SOUTH);
@@ -86,15 +73,13 @@ public class Frame extends JFrame implements ActionListener {
 	}
 
 	protected void addOptionsToMenu(JMenuBar menuBar) {
-		JMenu optionOne = new JMenu("Arquivo");
-		this.addOptions(optionOne, "Novo jogo");
-		//this.adicionarOpcoes(opcao1, "Ranking Normal");
-		//this.adicionarOpcoes(opcao1, "Ranking Dificil");
-		this.addOptions(optionOne, "Sair");
+		JMenu optionOne = new JMenu("File");
+		this.addOptions(optionOne, "New Game");
+		this.addOptions(optionOne, "Exit");
 
-		JMenu optionTwo = new JMenu("Ajuda");
-		this.addOptions(optionTwo, "Como jogar");
-		this.addOptions(optionTwo, "Sobre");
+		JMenu optionTwo = new JMenu("Help");
+		this.addOptions(optionTwo, "How to play");
+		this.addOptions(optionTwo, "About");
 
 		menuBar.add(optionOne);
 		menuBar.add(optionTwo);
@@ -109,11 +94,11 @@ public class Frame extends JFrame implements ActionListener {
 	}
 
 	protected void howToPlay() {
-		JOptionPane.showMessageDialog(this, GameInfo.getTextInfo(), "Como Jogar", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(this, GameInfo.getTextInfo(), "How to play", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	protected void showAbout() {
-		JOptionPane.showMessageDialog(this, GameInfo.getAboutInfo(), "Sobre", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(this, GameInfo.getAboutInfo(), "About", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
 	@Override
@@ -121,18 +106,19 @@ public class Frame extends JFrame implements ActionListener {
 		String command = e.getActionCommand();
 	
 		switch (command) {
-		case "Novo jogo":
-			this.destroyPanel();
-			//this.criarPainelDeConteudo(this.dificuldade);
+		case "New Game":
+			this.destroyPanel();			
 			break;
-		case "Como jogar":
+		case "How to play":
 			this.howToPlay();
 			break;
-		case "Sobre":
+		case "About":
 			this.showAbout();
 			break;
-		case "Sair":
+		case "Exit":
 			System.exit(0);
+		default:
+			break;		
 		}
 	}
 }

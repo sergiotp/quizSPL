@@ -15,10 +15,5 @@ public class Game extends JPanel {
 	public static void showGUI() {
 		@SuppressWarnings("unused")
 		JFrame game = new Frame();
-	}
-	
-	/*
-	 * Insere a pontuação do jogador de acordo com o nível de dificuldade.
-	 */	
-	
+	}	
 }

@@ -42,11 +42,9 @@ public class QuestionsPanel extends JPanel implements Panel, ActionListener {
 	}
 
 	public void goThroughQuestions(){
-		
 		this.q.createButtonGroup(panel, options);
 		add(panel, BorderLayout.SOUTH);
 		panel.setPreferredSize(new Dimension(800, 200));
-		//this.button.addActionListener(this);
 		add(button);
 	}
 
@@ -61,43 +59,38 @@ public class QuestionsPanel extends JPanel implements Panel, ActionListener {
 		String message = "Choose one of the three options below!";
 		String answer = this.q.getSelected();
 
-		if(answer == null){ //Nao selecionou a alternativa.
+		if(answer == null){ 
 			JOptionPane.showMessageDialog(this, message, "Error", JOptionPane.INFORMATION_MESSAGE);
 		}
 		else{
 			if(answer == "correct"){
-				JOptionPane.showMessageDialog(this, "Correct answer :)", "", JOptionPane.INFORMATION_MESSAGE);
-				//Atualizar o numero de questoes corretas.
-				
+				JOptionPane.showMessageDialog(this, "Correct answer :)", "", JOptionPane.INFORMATION_MESSAGE);								
 			}else{
 				JOptionPane.showMessageDialog(this, "Almost there :(", "", JOptionPane.INFORMATION_MESSAGE);
 				int fowlerValue;
 				if (this.phases < 5){
 					fowlerValue = Fowler.getInstance().getFowler() - 1;					
-					//Fowler.fowlers = Fowler.fowlers - 1;
 				}else{
 					fowlerValue = Fowler.getInstance().getFowler() - 2;
-					//Fowler.fowlers = Fowler.fowlers - 2;
 				}
 				Fowler.getInstance().setFowler(fowlerValue);
 				Label.updateFowler();
 				if (Fowler.getInstance().getFowler() == 0){
 					JOptionPane.showMessageDialog(this, "Game Over", "", JOptionPane.INFORMATION_MESSAGE);
 					System.exit(0);
-				}
-				//Atualizar o numero de questoes incorretas.
+				}			
 			}
 			System.out.println(this.phases);
 			this.verificaQuestoes();
 		}
 	}
 	protected void verificaQuestoes(){
-		if(this.alternatives < 2){//Ainda há alternativas a serem respondidas nessa fase.
+		if(this.alternatives < 2){
 			this.alternatives++;
 			this.clearPainel();
 			this.goThroughQuestions();
 		}else if(this.phases < 5){
-			this.options.remove(0); //Remove o cabeçalho Phase X: Descrição
+			this.options.remove(0);
 			this.clearPainel();
 			this.clearAll();
 			this.alternatives = 0;
@@ -109,9 +102,6 @@ public class QuestionsPanel extends JPanel implements Panel, ActionListener {
 		}
 	}
 		
-	/*
-	 * Limpa o painel 
-	 */
 	protected void clearPainel(){
 		this.panel.removeAll();;
 		this.panel.revalidate();
